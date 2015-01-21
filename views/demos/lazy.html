@@ -1,0 +1,20 @@
+<section layout="col" layout-align="center start" layout-padding layout-margin>
+	<md-card class="md-whiteframe-z3 demo-card" flex="50">
+		<h4>LazyModule</h4>
+		<p>
+			Jak widać nowy moduł bez problemu funkcjonuje z pozostałą częścią aplikacji.
+		</p>
+		<p>
+			<ul>
+				<li ng-repeat="item in lazy.data">
+					{{ item }}
+				</li>
+			</ul>
+		</p>
+		<p>
+			<a ui-sref="app.demo-oc()">
+				<md-button class="md-raised md-primary">POWRÓT</md-button>
+			</a>
+		</p>
+	</md-card>
+</section>

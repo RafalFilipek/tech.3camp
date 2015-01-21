@@ -1,0 +1,132 @@
+<!--- Proste użycie ng-repeat  -->
+<section layout="row" layout-align="center">
+	<md-card class="md-whiteframe-z3 demo-card" flex="30">
+			<md-toolbar>
+				<h2 class="md-toolbar-tools">
+					<span>Czas renderowania {{ demo.renders['normal'].end - demo.renders['normal'].start }}ms</span>
+				</h2>
+			</md-toolbar>
+			<div style="height: 200px; overflow-y:scroll" id="angular-render">
+				<p ng-repeat="contact in demo.phonebook.data track by contact.id" get-start-time get-end-time name="normal">
+					{{contact.fname + ' ' + contact.lname}}<br>
+					<small><strong>email: </strong>{{contact.email}}</small><br>
+					<small><strong>phone: </strong>{{contact.phone}}</small>
+					<hr>
+				</p>
+			</div>
+		</md-card>
+		<md-card class="md-whiteframe-z3 demo-card" flex="60">
+			<div class="content">
+				<element-info target="#angular-render"></element-info>
+				<pre ng-non-bindable>
+&lt;p ng-repeat=&quot;contact in demo.phonebook.data track by contact.id&quot; get-start-time get-end-time name=&quot;normal&quot;&gt;
+	{{contact.fname + ' ' + contact.lname}}&lt;br&gt;
+	&lt;small&gt;&lt;strong&gt;email: &lt;/strong&gt;{{contact.email}}&lt;/small&gt;&lt;br&gt;
+	&lt;small&gt;&lt;strong&gt;phone: &lt;/strong&gt;{{contact.phone}}&lt;/small&gt;
+	&lt;hr&gt;
+&lt;/p&gt;
+				</pre>
+			</div>
+		</md-card>
+</section>
+
+<!--- Proste użycie ng-repeat z bind-once  -->
+
+<section layout="row" layout-align="center">
+	<md-card class="md-whiteframe-z3 demo-card" flex="30">
+			<md-toolbar>
+				<h2 class="md-toolbar-tools">
+					<span>Czas renderowania {{ demo.renders['once'].end - demo.renders['once'].start }}ms</span>
+				</h2>
+			</md-toolbar>
+			<div style="height: 200px; overflow-y:scroll" id="angular-render-once">
+				<p ng-repeat="contact in demo.phonebook.data" get-start-time get-end-time name="once">
+					{{::contact.fname + ' ' + contact.lname}}<br>
+					<small><strong>email: </strong>{{::contact.email}}</small><br>
+					<small><strong>phone: </strong>{{::contact.phone}}</small>
+					<hr>
+				</p>
+			</div>
+		</md-card>
+		<md-card class="md-whiteframe-z3 demo-card" flex="60">
+			<div class="content">
+				<element-info target="#angular-render-once"></element-info>
+<pre ng-non-bindable>
+&lt;p ng-repeat=&quot;contact in demo.phonebook.data&quot; get-start-time get-end-time name=&quot;once&quot;&gt;
+	{{::contact.fname + ' ' + contact.lname}}&lt;br&gt;
+	&lt;small&gt;&lt;strong&gt;email: &lt;/strong&gt;{{::contact.email}}&lt;/small&gt;&lt;br&gt;
+	&lt;small&gt;&lt;strong&gt;phone: &lt;/strong&gt;{{::contact.phone}}&lt;/small&gt;
+	&lt;hr&gt;
+&lt;/p&gt;
+</pre>
+			</div>
+		</md-card>
+</section>
+
+<!--- Proste użycie ng-repeat z bind-once globalnym  -->
+
+<section layout="row" layout-align="center">
+	<md-card class="md-whiteframe-z3 demo-card" flex="30">
+			<md-toolbar>
+				<h2 class="md-toolbar-tools">
+					<span>Czas renderowania {{ demo.renders['once-global'].end - demo.renders['once-global'].start }}ms</span>
+				</h2>
+			</md-toolbar>
+			<div style="height: 200px; overflow-y:scroll" id="angular-render-once-global">
+				<p ng-repeat="contact in ::demo.phonebook.data" get-start-time get-end-time name="once-global">
+					{{contact.fname + ' ' + contact.lname}}<br>
+					<small><strong>email: </strong>{{contact.email}}</small><br>
+					<small><strong>phone: </strong>{{contact.phone}}</small>
+					<hr>
+				</p>
+			</div>
+		</md-card>
+		<md-card class="md-whiteframe-z3 demo-card" flex="60">
+			<div class="content">
+				<element-info target="#angular-render-once-global"></element-info>
+<pre ng-non-bindable>
+&lt;p ng-repeat=&quot;contact in ::demo.phonebook.data&quot; get-start-time get-end-time name=&quot;once-global&quot;&gt;
+	{{contact.fname + ' ' + contact.lname}}&lt;br&gt;
+	&lt;small&gt;&lt;strong&gt;email: &lt;/strong&gt;{{contact.email}}&lt;/small&gt;&lt;br&gt;
+	&lt;small&gt;&lt;strong&gt;phone: &lt;/strong&gt;{{contact.phone}}&lt;/small&gt;
+	&lt;hr&gt;
+&lt;/p&gt;
+</pre>
+			</div>
+		</md-card>
+</section>
+
+<!--- React -->
+
+<section layout="row" layout-align="center">
+	<md-card class="md-whiteframe-z3 demo-card" flex="30">
+			<md-toolbar>
+				<h2 class="md-toolbar-tools">
+					<span>Czas renderowania {{ demo.renders['react'].end - demo.renders['react'].start }}ms</span>
+				</h2>
+			</md-toolbar>
+			<div style="height: 350px; overflow-y:scroll" id="react-render">
+				<react-renderer data="demo.phonebook.data"></react-renderer>
+			</div>
+		</md-card>
+		<md-card class="md-whiteframe-z3 demo-card" flex="60">
+			<div class="content">
+				<h4>#react-render .List</h4>
+				<element-info target="#react-render .List"></element-info>
+<pre ng-non-bindable>
+&lt;p&gt;
+  {contact.fname} {contact.lname}
+  &lt;br /&gt;
+  &lt;small&gt;
+      &lt;strong&gt;email:&lt;/strong&gt; {concat.email}
+  &lt;/small&gt;
+  &lt;br /&gt;
+  &lt;small&gt;
+      &lt;strong&gt;phone:&lt;/strong&gt; {concat.phone}
+  &lt;/small&gt;
+  &lt;hr /&gt;
+&lt;/p&gt;
+</pre>
+			</div>
+		</md-card>
+</section>

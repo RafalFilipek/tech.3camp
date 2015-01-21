@@ -1,0 +1,21 @@
+<p>
+	<md-button ui-sref="app.demo-ui.versions.page({version:1, page:'b'})" md-no-ink class="md-primary">Zmień widok</md-button>
+	po wygenerowaniu listy.
+</p>
+<p>
+	Wyrenderuj <input ng-model="demo.count" type="number"> elementów
+	<md-button ng-click="demo.render()" ng-disabled="!demo.count" class="md-raised md-primary">OK</md-button>
+</p>
+<p ng-if="demo.items.length">
+	Dodaj <input ng-model="demo.addCount" type="number"> elementów
+	<md-button ng-click="demo.add()" ng-disabled="!demo.add" class="md-raised md-primary">OK</md-button>
+</p>
+<p ng-if="demo.items.length">
+	<small>{{ demo.renderEnd }} - {{ demo.renderStart }}</small> = <strong>{{ demo.renderEnd - demo.renderStart }}ms</strong>
+</p>
+
+<p ng-repeat="item in demo.items track by item.i" get-start-time get-end-time>
+	Element o indeksie <code>{{ ::item.i }}</code>
+	gdzie random to <strong>{{ ::item.random }}</strong>
+	a bool <strong ng-if="::item.bool">TAK</strong><strong ng-if="::!item.bool">NIE</strong>
+</p>

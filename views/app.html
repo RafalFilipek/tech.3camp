@@ -1,0 +1,27 @@
+<md-toolbar class="top-bar">
+	<h2 class="md-toolbar-tools">
+		<a ui-sref="app()">
+			<span>tech | <strong>3camp</strong></span>
+		</a>
+	</h2>
+</md-toolbar>
+<ui-view></ui-view>
+
+<div class="menu">
+	<div layout="row" layout-align="space-around start" layout-padding layout-margin>
+		<div ng-include="'views/steps/step-1.html'" ng-if="ctrl.progress > 0">
+		</div>
+		<div ng-include="'views/steps/step-2.html'" ng-if="ctrl.progress > 1">
+		</div>
+		<div ng-include="'views/steps/step-3.html'" ng-if="ctrl.progress > 2">
+		</div>
+		<div ng-include="'views/steps/step-4.html'" ng-if="ctrl.progress > 3">
+		</div>
+	</div>
+	<div layout="row" layout-align="space-around start" layout-padding layout-margin>
+		<div flex="75">
+			<md-slider md-discrete ng-model="ctrl.progress" step="1" min="1" max="4" aria-label="progress">
+			</md-slider>
+		</div>
+	</div>
+</div>

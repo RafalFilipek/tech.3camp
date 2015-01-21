@@ -1,0 +1,22 @@
+<section layout="col" layout-align="center start" layout-padding layout-margin>
+	<md-card class="md-whiteframe-z3 demo-card" flex="50">
+		<p style="text-align: center">
+			<md-button
+				ng-class="{'md-primary': $state.params.version === '1'}"
+				ui-sref="app.demo-ui.versions.page({version:1, page:'a'})"
+				class="md-raised"
+			>
+					Wersja standardowa
+			</md-button>
+			lub
+			<md-button
+				ng-class="{'md-primary': $state.params.version === '2'}"
+				ui-sref="app.demo-ui.versions.states.list({version:2})"
+				class="md-raised"
+			>
+					Wersja zoptymalizowana
+			</md-button>
+		</p>
+		<ui-view></ui-view>
+	</md-card>
+</section>

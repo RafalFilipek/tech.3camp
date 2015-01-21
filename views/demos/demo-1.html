@@ -1,0 +1,36 @@
+<section layout="col" layout-align="center start" layout-padding layout-margin>
+	<md-card class="md-whiteframe-z3 demo-card" flex="50">
+		<h4>DEMO</h4>
+		<p>
+			Czy aplikacja ma załadowany moduł <code>lazyModule</code>?
+			<strong>{{ demo.has === true ? 'Posiada' : demo.has === false ? 'Nie posiada': 'Nie wiem czy posiada' }}</strong>.
+		</p>
+		<pre>
+try {
+	angular.module('lazyModule')
+	vm.has = true
+} catch(e) {
+	console.info(e)
+	vm.has = false
+}		</pre>
+		<md-button ng-click="demo.check()" class="md-fab md-primary right" aria-label="Insert Drive" style="margin-top: -70px; float: right">
+			RUN
+		</md-button>
+		<p>
+			<code>ocLazyLoad</code> pozwala na bezproblemowe doładowanie modułu / aplikacji.
+		</p>
+		<p>
+			<md-button ng-click="demo.load()" class="md-raised md-primary">Doładuj</md-button>
+		</p>
+		<div ng-if="demo.activeView">
+			<p>
+				W tym momencie możemy przejść do stanu obsługiwanego przez załadowany moduł.
+			</p>
+			<p>
+				<a ui-sref="app.demo-oc.lazy()">
+					<md-button class="md-raised md-primary">Przejdź</md-button>
+				</a>
+			</p>
+		</div>
+	</md-card>
+</section>

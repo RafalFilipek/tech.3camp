@@ -1,0 +1,17 @@
+<md-card layout="row" layout-align="space-between center">
+	<p>
+		<img src="3camp.jpg" class="md-card-image" flex="75">
+	</p>
+	<div>
+		<h4>Dynamiczny parametr z URL to "<code>{{ $state.params.state }}</code>"</h4>
+		<md-button
+			ui-sref="app.demo-ui.versions.states.list({version:2, state:'b'})"
+			md-no-ink
+			class="md-primary"
+		>
+			Zmień widok
+		</md-button>
+	</div>
+</md-card>
+
+
